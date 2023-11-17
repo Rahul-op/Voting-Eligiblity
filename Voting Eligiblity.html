@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vote Eligibility Checker</title>
+  <style>
+    body{
+        margin: 0;
+        padding: 0;
+        display: grid;
+        place-items: center;
+        background-color: blueviolet;
+    }
+  </style>
+</head>
+<body>
+    <h1>Vote Eligibility Checker</h1> <hr>
+  <p>Enter your age and nationality to check if you are eligible to vote:</p>
+  <label for="ageInput">Age:</label>
+  <input type="number" id="ageInput">
+  <br>
+  <label for="nationalityInput">Nationality:</label>
+  <input type="text" id="nationalityInput">
+  <br>
+  <button onclick="checkEligibility()">Check Eligibility</button>
+  <p id="result"></p>
+  </div>
+
+  <script>
+    function checkEligibility() {
+      const age = parseInt(document.getElementById("ageInput").value);
+      const nationality = document.getElementById("nationalityInput").value.toLowerCase();
+      
+      if (isNaN(age) || age < 0) {
+        document.getElementById("result").textContent = "Please enter a valid age.";
+        return;
+      }
+      
+      if (nationality !== "indian") {
+        document.getElementById("result").textContent = "You must be an Indian citizen to be eligible to vote.";
+        return;
+      }
+      
+      if (age >= 18) {
+        document.getElementById("result").textContent = "You are eligible to cast your vote!";
+      } else {
+        document.getElementById("result").textContent = "Sorry, you are not eligible to vote yet.";
+      }
+    }
+  </script>
+</body>
+</html>
